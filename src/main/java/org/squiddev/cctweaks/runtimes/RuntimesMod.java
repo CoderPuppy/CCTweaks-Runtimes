@@ -17,7 +17,7 @@ import java.util.Map;
 	modid = RuntimesMod.ID,
 	name = RuntimesMod.NAME,
 	version = "${mod_version}",
-	dependencies = "required-after:ComputerCraft;",
+	dependencies = "required-after:computercraft;",
 	acceptedMinecraftVersions = "[1.8.9,]",
 	guiFactory = "org.squiddev.cctweaks.runtimes.GuiConfigFactory"
 )
@@ -46,7 +46,7 @@ public class RuntimesMod {
 
 	@SubscribeEvent
 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
-		if (eventArgs.modID.equals(RuntimesMod.ID)) {
+		if (eventArgs.getModID().equals(RuntimesMod.ID)) {
 			org.squiddev.cctweaks.runtimes.ConfigForgeLoader.sync();
 		}
 	}
